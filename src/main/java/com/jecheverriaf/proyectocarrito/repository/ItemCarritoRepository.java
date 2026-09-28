@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public interface ItemCarritoRepository extends JpaRepository<ItemCarrito, Long> {
 
-    @Query("SELECT ic FROM ItemCarrito ic JOIN FETCH ic.prodducto WHERE ic.codUsuario = :codUsuario")
+    @Query("SELECT ic FROM ItemCarrito ic JOIN FETCH ic.producto WHERE ic.codUsuario = :codUsuario")
     List<ItemCarrito> findByCodUsuario(@Param("codUsuario") String codUsuario);
 
     Optional<ItemCarrito> findByCodUsuarioAndProducto_Id(String codUsuario, Long idProducto);

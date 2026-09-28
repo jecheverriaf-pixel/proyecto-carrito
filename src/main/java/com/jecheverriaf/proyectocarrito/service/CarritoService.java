@@ -57,7 +57,7 @@ public class CarritoService {
         itemCarritoRepository.deleteById(idShoppingCart);
     }
     @Transactional
-    public void vacia(String codUsuario){ itemCarritoRepository.deleteByCodUsuario(codUsuario);}
+    public void vaciar(String codUsuario){ itemCarritoRepository.deleteByCodUsuario(codUsuario);}
 
     private ItemCarritoDTO toDTO(ItemCarrito item){
         Producto producto = item.getProducto();
