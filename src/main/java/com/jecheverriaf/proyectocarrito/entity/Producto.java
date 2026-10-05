@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class Producto {
-
+    // entidad de la tabla producto, cada atributo es una columna
+    // los @Column llevan el nombre tal cual esta en la base de datos (camelCase), por eso en el properties puse la naming strategy
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idProducto")
@@ -20,10 +21,11 @@ public class Producto {
 
     @Column(name = "nombre")
     private String nombre;
-
+    // nullable = false porque en la tabla codigo es NOT NULL
     @Column(name = "codigo", nullable = false)
     private String codigo;
 
+    // aqui solo guardo la ruta de la imagen
     @Column(name = "imagen")
     private String imagen;
 

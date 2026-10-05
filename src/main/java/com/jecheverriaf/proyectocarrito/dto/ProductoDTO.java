@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+// lo que mando al catalogo por cada producto
+// uso DTO para mandar solo lo que la vista necesita y no la entidad de la bd directo
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<!-- pagina del catalogo. todo esto se mete dentro del layout -->
+<!-- ~{::title}, ~{::main} y ~{::script} agarran esas etiquetas de aqui y se las pasan al layout -->
+<div th:replace="~{fragments/layout :: layout(~{::title}, ~{::main}, ~{::script})}">
+
+    <title>Inicio</title>
+
+    <main>
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Catálogo de productos</h1>
+            <p class="mt-1 text-gray-500">Elige tus productos favoritos y agrégalos al carrito.</p>
+        </div>
+
+        <!-- si la lista viene vacia muestro este mensaje -->
+        <div th:if="${#lists.isEmpty(productos)}"
+             class="rounded-lg border border-dashed border-gray-300 bg-white p-12 text-center text-gray-500">
+            No hay productos disponibles en este momento.
+        </div>
+        <!-- grid de productos, th:each es como un for: por cada producto de la lista hago una tarjeta -->
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div th:each="producto : ${productos}"
+                 class="flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
+
+                <div class="aspect-square w-full overflow-hidden bg-gray-100">
+                    <img th:src="@{'/' + ${producto.imagen}}" th:alt="${producto.nombre}"
+                         class="h-full w-full object-cover" />
+                </div>
+
+                <!-- form para agregar. si no hay js se manda normal a /carrito/agregar -->
+                <!-- si hay js, data-carrito-form hace que carrito-app.js lo agarre y lo mande con fetch -->
+                <form data-carrito-form method="post" th:action="@{/carrito/agregar}" class="flex flex-1 flex-col p-4">
+                    <!-- el id va escondido el name id tiene que ser igual al campo de AgregarItemRequest -->
+                    <input type="hidden" name="id" th:value="${producto.idProducto}" />
+                    <!-- asi si un nombre trae codigo raro no se ejecuta -->
+                    <h3 class="line-clamp-2 text-sm font-semibold text-gray-900" th:text="${producto.nombre}"></h3>
+                    <p class="mt-1 text-lg font-bold text-blue-600" th:text="'Q' + ${producto.precio}"></p>
+
+                    <div class="mt-auto flex items-center gap-2 pt-4">
+                        <input type="number" name="cantidad" th:id="'cantidad-' + ${producto.idProducto}" value="1" min="1"
+                               class="w-16 rounded-lg border border-gray-300 px-2 py-1.5 text-center text-sm focus:border-blue-500 focus:ring-blue-500" />
+                        <button type="submit"
+                                class="flex-1 rounded-lg bg-blue-600 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200">
+                            Agregar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script></script>
+
+</div>
+</body>
+
+</html>

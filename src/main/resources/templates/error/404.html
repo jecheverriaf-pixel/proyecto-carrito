@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<!-- pagina 404, spring boot la busca solita en templates/error/404.html -->
+<!-- sale cuando la ruta no existe o cuando lanzo RecursoNoEncontradoException -->
+<!-- uso el layout y le paso mi title, main y script -->
+<div th:replace="~{fragments/layout :: layout(~{::title}, ~{::main}, ~{::script})}">
+
+    <title>Página inexistente</title>
+
+    <main class="flex flex-col items-center justify-center py-24 text-center">
+        <h1 class="text-3xl font-bold text-gray-900">Página no encontrada</h1>
+        <p class="mt-2 text-gray-500">Lo lamentamos, esta página no existe en el sitio.</p>
+        <a th:href="@{/}"
+           class="mt-6 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700">
+            Ir a Inicio
+        </a>
+    </main>
+
+    <script></script>
+
+</div>
+</body>
+
+</html>
