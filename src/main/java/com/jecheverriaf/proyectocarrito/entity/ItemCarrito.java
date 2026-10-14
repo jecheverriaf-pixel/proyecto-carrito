@@ -33,7 +33,7 @@ public class ItemCarrito {
     private Long id;
 
     // muchos items pueden apuntar al mismo producto
-    // LAZY = no carga el producto hasta que lo uso, por eso en el repo hago JOIN FETCH
+
     // @JoinColumn es la columna de la llave foranea
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -16,8 +16,8 @@ import java.util.Optional;
 
 public interface ItemCarritoRepository extends JpaRepository<ItemCarrito, Long> {
 
-    // esta consulta es JPQL (usa nombres de clases, no de tablas)
-    // el JOIN FETCH trae los items con su producto en una sola consulta, asi evito el problema N+1
+    // esta consulta es (usa nombres de clases, no de tablas)
+    // el JOIN FETCH trae los items con su producto en una sola consulta, asi evito sobrecarga
 
     @Query("SELECT ic FROM ItemCarrito ic JOIN FETCH ic.producto WHERE ic.codUsuario = :codUsuario")
     List<ItemCarrito> findByCodUsuario(@Param("codUsuario") String codUsuario);
@@ -26,6 +26,7 @@ public interface ItemCarritoRepository extends JpaRepository<ItemCarrito, Long> 
     // el _ es para entrar al id del producto. devuelve Optional porque puede que no exista
     Optional<ItemCarrito> findByCodUsuarioAndProducto_Id(String codUsuario, Long idProducto);
 
+    boolean existsByIdAndCodUsuario(Long id, String codUsuario);
     // borra todos los items de ese usuario, este necesita estar dentro de una transaccion
      void deleteByCodUsuario(String codUsuario);
 }

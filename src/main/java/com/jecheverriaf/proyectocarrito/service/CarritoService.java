@@ -59,8 +59,9 @@ public class CarritoService {
     }
     // quita un item del carrito, primero reviso que exista para mandar excepcion
     @Transactional
-    public void eliminarItem(Long idShoppingCart) {
-        if (!itemCarritoRepository.existsById(idShoppingCart)) {
+    public void eliminarItem(String codUsuario, Long idShoppingCart) {
+        if (!itemCarritoRepository.existsByIdAndCodUsuario(
+                idShoppingCart, codUsuario)) {
             throw new RecursoNoEncontradoException("Item de carrito no encontrado: " + idShoppingCart);
         }
         itemCarritoRepository.deleteById(idShoppingCart);

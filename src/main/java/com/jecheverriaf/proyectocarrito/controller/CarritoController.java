@@ -47,8 +47,9 @@ public class CarritoController {
     }
     // elimina un solo producto del carrito, el id viene en la url
     @GetMapping("/carrito/{id}/eliminar")
-    public String eliminar(@PathVariable Long id) {
-        carritoService.eliminarItem(id);
+    public String eliminar(@PathVariable Long id,HttpSession session) {
+        String codUsuario = usuarioSesionService.getCodUsuario(session);
+        carritoService.eliminarItem(codUsuario,id);
         return "redirect:/carrito";
     }
     // borra todo el carrito del usuario de esta sesion

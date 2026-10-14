@@ -64,7 +64,7 @@ public class CarritoServiceTest {
         verify(itemCarritoRepository, times(1)).save(any(ItemCarrito.class));
     }
     @Test
-    void vaciarBorraTodosLosItemsDelUsuario() {
+    void vaciarTodosLosItemsDelUsuario() {
         carritoService = new CarritoService(itemCarritoRepository, productoRepository);
 
         carritoService.vaciar(COD_USUARIO);
