@@ -24,7 +24,7 @@
         };
     </script>
     <!-- aqui se pone el title que manda cada pagina -->
-    <title th:text="${title}">Título</title>
+    <title th:replace="${title}">Título</title><!--aqui estaba el error -->
 </head>
 
 <body class="h-full font-sans bg-gray-50 text-gray-800">
