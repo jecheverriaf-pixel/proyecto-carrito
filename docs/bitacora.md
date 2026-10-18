@@ -27,21 +27,3 @@
 | 2026-10-17 | Agregué el **contrato de la API** al repositorio (`docs/contrato_api.md`) y ajusté el README. | Tenía la documentación de los endpoints solo en local. | Ahora el contrato está versionado junto al código. | `02ec9b1` |
 | 2026-10-17 | Ajusté el **frontend** del catálogo y del carrito (`carrito-app.js`, `home/index.html`, `carrito/index.html`) para que consuma la API REST con `fetch` y procese las respuestas JSON. | El enunciado (8.3 y 14.3) pide que el frontend liste, agregue y elimine mediante la API, no solo con vistas procesadas en el servidor. | Cambié las vistas y el JavaScript para trabajar con los endpoints `/api/...`. | `d2c4867` |
 
-## Pendientes de documentación (requieren evidencia real, no se pueden completar solo con texto)
-
-- [x] Capturas de la instalación del hipervisor y la VM Linux (Fase 0). Ver `docs/CAPTURAS_INDEX.md`.
-- [x] Justificación de la RAM, CPU, almacenamiento y red que le asigné a la VM. Ver `docs/CAPTURAS_INDEX.md`.
-- [x] Capturas de los servicios activos (Apache, MySQL) dentro de la VM. Ver `docs/CAPTURAS_INDEX.md`.
-- [x] Configuración del Virtual Host (`carrito-compra.com`) y prueba de acceso (2026-10-17). Ver `capturas/virtualhost.png` (archivo `httpd-vhosts.conf`), `capturas/carritophp.png` (sitio con estilos) y la sección 4 del documento técnico.
-- [x] Diagrama de casos de uso (nivel blanco/empresarial y azul). Ver `docs/diagrama de casos de uso.svg` y `docs/casosdeuso.png`.
-- [x] Diagrama de clases (vista de implementación). Ver `docs/diagramas/diagrama_clases.dia` (+ `diagrama-proyecto-carrito.png`) y `docs/diagramadeclases.pdf`.
-- [x] Mockups del frontend. Ver `docs/Mockup CarritoGT.pdf`, `docs/Catálogo de productos (wireframe).pdf` y `docs/Carrito de compra (wireframe).pdf`.
-- [ ] Video demostrativo de 3 a 5 minutos (VM + versión PHP + API + integración).
-- [x] Capturas de las pruebas unitarias y de repositorio en verde (2026-10-14). Ver `docs/CAPTURAS_INDEX.md`, lote 7.
-- [x] Capturas de los endpoints REST nuevos en Postman (`GET /api/carrito`, `DELETE /api/carrito/items/{id}`). Ver `docs/CAPTURAS_INDEX.md`, lote 7.
-- [x] Captura de `DELETE /api/carrito` (vaciar) en Postman → 200 `{"totalItems": 0}` (2026-10-15). Ver `docs/CAPTURAS_INDEX.md`, lote 8.
-- [x] Capturas de `ProductoTest`, `ItemCarritoTest` y `RecursoNoEncontradoExceptionTest` en verde (2026-10-15, commit `536ce29`). Ver `docs/CAPTURAS_INDEX.md`, lote 9.
-- [ ] Captura que me falta de la API: `GET /api/productos` con su respuesta.
-- [ ] Captura del navegador abriendo la app en el subdominio DuckDNS (`:8080`) desde la nube.
-- [x] Corregir el `<title>` escapado de las vistas: en `fragments/layout.html` se cambió a `th:replace="${title}"` (commit `46689e3`).
-- [ ] Formato de precios a dos decimales (`Q215.10`). Evidencia: lote 10 de `docs/CAPTURAS_INDEX.md` (2026-10-16).
