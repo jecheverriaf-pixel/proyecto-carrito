@@ -122,14 +122,4 @@ Los ejemplos de request/response y los códigos de error están en
   commits agrupan el código por capa y no reflejan el trabajo día a día. De ahí en adelante los commits
   ya van siendo incrementales, conforme a la bitácora.
 
-## Documentación relacionada
-
-- [`DOCUMENTACION.md`](./DOCUMENTACION.md) — arquitectura, decisiones técnicas y despliegue en la VM.
-- [`docs/GUIA_CONSTRUCCION.md`](./docs/GUIA_CONSTRUCCION.md) — cómo reconstruir el proyecto desde cero, capa por capa.
-- [`docs/DESPLIEGUE_AWS.md`](./docs/DESPLIEGUE_AWS.md) — despliegue en EC2 (capa gratuita) y DuckDNS.
-- [`docs/DIAGRAMA_CASOS_USO.md`](./docs/DIAGRAMA_CASOS_USO.md) — casos de uso nivel blanco y azul.
-- [`docs/DIAGRAMA_CLASES.md`](./docs/DIAGRAMA_CLASES.md) — diagrama de clases, vista de implementación.
-- [`docs/DICCIONARIO_DATOS.md`](./docs/DICCIONARIO_DATOS.md) — tablas, campos y relaciones.
-- [`docs/CONTRATO_API.md`](./docs/CONTRATO_API.md) — endpoints, parámetros y ejemplos.
-- [`docs/MANUAL_USUARIO.md`](./docs/MANUAL_USUARIO.md) — cómo usar el carrito de compras.
-- [`docs/BITACORA.md`](./docs/BITACORA.md) — registro de avances, problemas y cómo los resolví.
+#
