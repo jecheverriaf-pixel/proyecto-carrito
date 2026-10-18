@@ -19,6 +19,7 @@
              class="rounded-lg border border-dashed border-gray-300 bg-white p-12 text-center text-gray-500">
             No hay productos disponibles en este momento.
         </div>
+
         <!-- grid de productos, th:each es como un for: por cada producto de la lista hago una tarjeta -->
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div th:each="producto : ${productos}"
@@ -32,12 +33,15 @@
                 <!-- form para agregar. si no hay js se manda normal a /carrito/agregar -->
                 <!-- si hay js, data-carrito-form hace que carrito-app.js lo agarre y lo mande con fetch -->
                 <form data-carrito-form method="post" th:action="@{/carrito/agregar}" class="flex flex-1 flex-col p-4">
-                    <!-- el id va escondido el name id tiene que ser igual al campo de AgregarItemRequest -->
+                    <!-- el id va escondido, el name "id" tiene que ser igual al campo de AgregarItemRequest -->
                     <input type="hidden" name="id" th:value="${producto.idProducto}" />
-                    <!-- asi si un nombre trae codigo raro no se ejecuta -->
+
+                    <!-- th:text escapa el html, asi si un nombre trae codigo raro no se ejecuta -->
+
                     <h3 class="line-clamp-2 text-sm font-semibold text-gray-900" th:text="${producto.nombre}"></h3>
                     <p class="mt-1 text-lg font-bold text-blue-600" th:text="'Q' + ${producto.precio}"></p>
 
+                    <!-- cantidad, el min="1" solo lo valida el navegador, en el servidor no -->
                     <div class="mt-auto flex items-center gap-2 pt-4">
                         <input type="number" name="cantidad" th:id="'cantidad-' + ${producto.idProducto}" value="1" min="1"
                                class="w-16 rounded-lg border border-gray-300 px-2 py-1.5 text-center text-sm focus:border-blue-500 focus:ring-blue-500" />
