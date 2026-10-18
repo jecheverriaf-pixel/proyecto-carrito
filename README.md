@@ -111,7 +111,7 @@ copy application.properties.example config\application.properties
 | DELETE | `/api/carrito` | Vacía el carrito y responde `{"totalItems": 0}` |
 
 Los ejemplos de request/response y los códigos de error están en
-[`docs/CONTRATO_API.md`](./docs/CONTRATO_API.md). Todos los probé con Postman (colección `PruebasCarrito`).
+[`docs/contrato_api.md`](./docs/CONTRATO_API.md). Todos los probé con Postman (colección `PruebasCarrito`).
 
 ## Problemas conocidos y limitaciones
 
